@@ -1,94 +1,194 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  <title>UVa_10260 Soundex | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Answer DescriptionSoundex coding groups together words that appear to sound alike based on their spelling. For example, “can” and “khawn”, “con” and “gone” would be equivalent under Soundex coding.Sou">
-<meta name="keywords" content="Others">
-<meta property="og:type" content="article">
-<meta property="og:title" content="UVa_10260 Soundex">
-<meta property="og:url" content="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Answer DescriptionSoundex coding groups together words that appear to sound alike based on their spelling. For example, “can” and “khawn”, “con” and “gone” would be equivalent under Soundex coding.Sou">
-<meta property="og:updated_time" content="2017-06-29T02:08:59.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UVa_10260 Soundex">
-<meta name="twitter:description" content="Answer DescriptionSoundex coding groups together words that appear to sound alike based on their spelling. For example, “can” and “khawn”, “con” and “gone” would be equivalent under Soundex coding.Sou">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="UVa_10260 Soundex"/>
+
+
+
+
+  <meta name="keywords" content="Others, Hexo" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="Hexo">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
   
 
-</head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> UVa_10260 Soundex - Hexo </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">Hexo</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">Hexo</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://youngle37.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-UVa-10260-Soundex" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/06/29/UVa-10260-Soundex/" class="article-date">
-  <time datetime="2017-06-29T02:05:15.000Z" itemprop="datePublished">2017-06-29</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/OnlineJudge/">OnlineJudge</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+    </ul>
   
-    <h1 class="article-title" itemprop="name">
-      UVa_10260 Soundex
-    </h1>
-  
+</nav>
 
       </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          UVa_10260 Soundex
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-06-29
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/OnlineJudge/">OnlineJudge</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
       
         <p><a href="https://github.com/youngle37/ACM/blob/master/UVa/10260_Soundex.cpp" target="_blank" rel="external">Answer</a></p>
 <h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Soundex coding groups together words that appear to sound alike based on their spelling. For example, “can” and “khawn”, “con” and “gone” would be equivalent under Soundex coding.<br>Soundex coding involves translating each word into a series of digits in which each digit represents a letter:<br>1 represents B, F, P, or V<br>2 represents C, G, J, K, Q, S, X, or Z 3 represents D or T<br>4 represents L<br>5 represents M or N<br>6 represents R<br>The letters A, E, I, O, U, H, W, and Y are not represented in Soundex coding, and repeated letters with the same code digit are represented by a single instance of that digit. Words with the same Soundex coding are considered equivalent.</p>
@@ -100,117 +200,168 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/" data-id="cj4hskdpj0004d02lv0muv7sq" class="article-share-link">Share</a>
+
+    
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Others/">Others</a></li></ul>
 
-    </footer>
-  </div>
-  
-    
-<nav id="article-nav">
-  
-  
-    <a href="/2017/06/29/UVa-10257-Dick-and-Jane/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">UVa_10257 Dick and Jane</div>
-    </a>
-  
-</nav>
-
-  
-</article>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2017/06/29/UVa-10260-Soundex/">UVa_10260 Soundex</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/29/UVa-10257-Dick-and-Jane/">UVa_10257 Dick and Jane</a>
-          </li>
-        
-          <li>
-            <a href="/2017/06/10/Computer-Organization-Pipeline-Simulation/">[Computer Organization] Pipeline Simulation</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/06/">June 2017</a><span class="archive-list-count">3</span></li></ul>
-    </div>
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="http://youngle37.github.io">YoungLe</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/">http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
   </div>
 
 
-  
+
+      
+      
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/OnlineJudge/">OnlineJudge</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Homework/">作業</a><span class="category-list-count">1</span></li></ul>
-    </div>
-  </div>
 
-
-  
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Organization/">Computer-Organization</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Others/">Others</a><span class="tag-list-count">2</span></li></ul>
-    </div>
-  </div>
-
-
-  
-</aside>
+      <footer class="post-footer">
         
+          <div class="post-tags">
+            
+              <a href="/tags/Others/">Others</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/06/29/UVa-10257-Dick-and-Jane/">
+        <span class="next-text nav-default">UVa_10257 Dick and Jane</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">YoungLe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2017 YoungLe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
+
+    
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+
+
+
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
 
 
-<script src="/js/script.js"></script>
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
 
-  </div>
-</body>
+  </body>
 </html>
