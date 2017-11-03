@@ -17,7 +17,7 @@
 
 
 
-  <meta name="description" content="UVa_10260 Soundex"/>
+  <meta name="description" content="UVa_13054 Hippo Circus"/>
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-<link rel="canonical" href="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/"/>
+<link rel="canonical" href="http://youngle37.github.io/2017/11/04/UVa-13054-Hippo-Circus/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
@@ -79,7 +79,7 @@
 
 
 
-    <title> UVa_10260 Soundex - Hexo </title>
+    <title> UVa_13054 Hippo Circus - Hexo </title>
   </head>
 
   <body><div id="mobile-navbar" class="mobile-navbar">
@@ -159,13 +159,13 @@
     <header class="post-header">
       <h1 class="post-title">
         
-          UVa_10260 Soundex
+          UVa_13054 Hippo Circus
         
       </h1>
 
       <div class="post-meta">
         <span class="post-time">
-          2017-06-29
+          2017-11-04
         </span>
         
           <div class="post-category">
@@ -183,20 +183,22 @@
   <div class="post-toc" id="post-toc">
     <h2 class="post-toc-title">Contents</h2>
     <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Description"><span class="toc-text">Description</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Input"><span class="toc-text">Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Output"><span class="toc-text">Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Input"><span class="toc-text">Sample Input</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sample-Output"><span class="toc-text">Sample Output</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Idea"><span class="toc-text">Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Trap"><span class="toc-text">Trap</span></a></li></ol>
     </div>
   </div>
 
 
     <div class="post-content">
       
-        <p><a href="https://github.com/youngle37/ACM/blob/master/UVa/10260_Soundex.cpp" target="_blank" rel="external">Answer</a></p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Soundex coding groups together words that appear to sound alike based on their spelling. For example, “can” and “khawn”, “con” and “gone” would be equivalent under Soundex coding.<br>Soundex coding involves translating each word into a series of digits in which each digit represents a letter:<br>1 represents B, F, P, or V<br>2 represents C, G, J, K, Q, S, X, or Z 3 represents D or T<br>4 represents L<br>5 represents M or N<br>6 represents R<br>The letters A, E, I, O, U, H, W, and Y are not represented in Soundex coding, and repeated letters with the same code digit are represented by a single instance of that digit. Words with the same Soundex coding are considered equivalent.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Each line of input contains a single word, all upper case, less than 20 letters long.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each line of input, produce a line of output giving the Soundex code.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">KHAWN</div><div class="line">PFISTER</div><div class="line">BOBBY</div></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">25</div><div class="line">1236</div><div class="line">11</div></pre></td></tr></table></figure>
-<p>直接建表查詢<br>然後記錄一下上一個的值就解出來了</p>
+        <p><a href="https://github.com/youngle37/ACM/blob/master/UVa/13054_Hippo_Circus.cpp" target="_blank" rel="external">Answer</a></p>
+<h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>很多隻不同高度的河馬要走過固定高度的門<br>兩隻河馬可以背著使用Td的時間走 兩隻加起來的高度必須小於門的高度<br>一隻河馬走的話使用Ta的時間<br>找出最小通過門的時間</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>C: 測資數量<br>N: 河馬數量<br>H: 門的高度<br>Ta: 單獨河馬經過門的時間<br>Td: 兩隻河馬背著走的時間</p>
+<p>每筆測資：<br>N H Ta Td<br>接下來為N個河馬的高度輸入</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>‘Case X: 時間’</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">2</div><div class="line">3 5 2 3</div><div class="line">3 4 2</div><div class="line">3 6 2 3</div><div class="line">3 4 2</div></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Case 1: 6</div><div class="line">Case 2: 5</div></pre></td></tr></table></figure>
+<h2 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h2><p>最高的河馬配最矮的河馬 若還是不能通過門則高河馬必須自己走</p>
+<h2 id="Trap"><a href="#Trap" class="headerlink" title="Trap"></a>Trap</h2><p>Ta 可為0<br>Ta + Ta &lt;= Td is fine.</p>
 
       
     </div>
@@ -212,7 +214,7 @@
     </p>
     <p class="copyright-item">
       <span>Link: </span>
-      <a href="http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/">http://youngle37.github.io/2017/06/29/UVa-10260-Soundex/</a>
+      <a href="http://youngle37.github.io/2017/11/04/UVa-13054-Hippo-Circus/">http://youngle37.github.io/2017/11/04/UVa-13054-Hippo-Circus/</a>
     </p>
     <p class="copyright-item">
       <span>License: </span>
@@ -240,15 +242,9 @@
         
   <nav class="post-nav">
     
-      <a class="prev" href="/2017/11/04/UVa-13054-Hippo-Circus/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">UVa_13054 Hippo Circus</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
     
-    
-      <a class="next" href="/2017/06/29/UVa-10257-Dick-and-Jane/">
-        <span class="next-text nav-default">UVa_10257 Dick and Jane</span>
+      <a class="next" href="/2017/06/29/UVa-10260-Soundex/">
+        <span class="next-text nav-default">UVa_10260 Soundex</span>
         <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
