@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Create adjacency list by array - 鏈式前向星"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/default" title="YoungLe">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="http://youngle37.github.io/2017/11/18/Create-adjacency-list-by-array-鏈式前向星/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Create adjacency list by array - 鏈式前向星 - YoungLe </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">YoungLe</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">YoungLe</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Create adjacency list by array - 鏈式前向星
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-11-18
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/categories/DataStructure/">DataStructure</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Main-Idea"><span class="toc-text">Main Idea</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Structure"><span class="toc-text">Structure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Add-edge"><span class="toc-text">Add edge</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Code"><span class="toc-text">Code</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h2 id="Main-Idea"><a href="#Main-Idea" class="headerlink" title="Main Idea"></a>Main Idea</h2><p>We can traversal a node’s neighbors quickly,<br>by making a new struct for edge and using a array to record the start of a node’s neighbors.</p>
+<p>We also need to number all edge in graph to chain the neighbor together without using pointer.</p>
+<h2 id="Structure"><a href="#Structure" class="headerlink" title="Structure"></a>Structure</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> to;</div><div class="line">    <span class="keyword">int</span> w;</div><div class="line">    <span class="keyword">int</span> next;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>to: the end of edge<br>w: weight of edge<br>next: the next neighbor edge number</p>
+<h3 id="Add-edge"><a href="#Add-edge" class="headerlink" title="Add edge"></a>Add edge</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="keyword">int</span> w)</span></span>&#123;</div><div class="line">    edge[cnt_edge].to = to;</div><div class="line">    edge[cnt_edge].w = w;</div><div class="line">    edge[cnt_edge].next = head[from];</div><div class="line">    head[from] = cnt_edge++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>cnt_edge: the global variable to number each edge<br>head[]: record the head of a node’s neighbors. Index is the node number.</p>
+<p>You can found that the head of a node is always the last edge added to this node.<br>So it’s in reverse order when you traverse the node.</p>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> _ ios_base::sync_with_stdio(false);cin.tie(0);</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> N 100</span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span> &#123;</span></div><div class="line">    <span class="keyword">int</span> to;</div><div class="line">    <span class="keyword">int</span> w;</div><div class="line">    <span class="keyword">int</span> next;</div><div class="line">&#125; edge[N * <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="keyword">int</span> cnt_edge = <span class="number">0</span>;</div><div class="line"><span class="keyword">int</span> head[N * <span class="number">2</span>];</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_edge</span><span class="params">(<span class="keyword">int</span> from, <span class="keyword">int</span> to, <span class="keyword">int</span> w)</span> </span>&#123;</div><div class="line">    edge[cnt_edge].to = to;</div><div class="line">    edge[cnt_edge].w = w;</div><div class="line">    edge[cnt_edge].next = head[from];</div><div class="line">    head[from] = cnt_edge++;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</div><div class="line">    _</div><div class="line"></div><div class="line">    <span class="built_in">memset</span>(head, <span class="number">-1</span>, <span class="keyword">sizeof</span>(head));</div><div class="line"></div><div class="line">    <span class="keyword">int</span> edge_number;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Input edge number: "</span>;</div><div class="line">    <span class="built_in">cin</span> &gt;&gt; edge_number;</div><div class="line"></div><div class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Input edge start, end, weight: "</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    <span class="keyword">int</span> from, to, w;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; edge_number; ++i) &#123;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; from &gt;&gt; to &gt;&gt; w;</div><div class="line">        add_edge(from, to, w);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">int</span> node;</div><div class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Input the node you want to traversal its neighbors:"</span>;</div><div class="line">        <span class="built_in">cin</span> &gt;&gt; node;</div><div class="line"></div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = head[node]; ~i ; i = edge[i].next) <span class="comment">// if i != -1 then continue</span></div><div class="line">            <span class="built_in">cout</span> &lt;&lt; edge[i].to &lt;&lt; <span class="string">' '</span>;</div><div class="line"></div><div class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">'\n'</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      
+      
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+    
+      <a class="next" href="/2017/11/04/UVa-13054-Hippo-Circus/">
+        <span class="next-text nav-default">UVa_13054 Hippo Circus</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2017
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">YoungLe</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'http://youngle37.github.io/2017/11/18/Create-adjacency-list-by-array-鏈式前向星/';
+        this.page.identifier = '2017/11/18/Create-adjacency-list-by-array-鏈式前向星/';
+        this.page.title = 'Create adjacency list by array - 鏈式前向星';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//youngle.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
